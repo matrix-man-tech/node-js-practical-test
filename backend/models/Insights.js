@@ -1,46 +1,46 @@
 const mongoose = require('mongoose')
 
 const InsightSchema = new mongoose.Schema({
-    domainName:{
-        type:String,
-        required: [true,"Domain name is required"],
-        
+    domainName: {
+        type: String,
+        required: [true, "Domain name is required"],
+
     },
-    wordCount:{
+    wordCount: {
         type: Number,
-        required:[true,"Word Count is required"],
+        required: [true, "Word Count is required"],
         default: 0
     },
-    isFavourite:{
+    isFavourite: {
         type: Boolean,
-        default:false
+        default: false
     },
-   
-    webLinks:[
+
+    webLinks: [
         {
             type: Array,
-            default:[]
+            default: []
         }
     ],
 
-    user:{
+    user: {
         type: mongoose.Schema.Types.ObjectId,
         ref: "User",
-        required: [true,"Please.. User is required "]
+        required: [true, "Please.. User is required "]
     },
-    
+
 },
-{
-    toJSON:{
-        virtuals: true
-    },
-    toObject:{
-        virtuals:true
-    },
-    timestamps: true
-})
+    {
+        toJSON: {
+            virtuals: true
+        },
+        toObject: {
+            virtuals: true
+        },
+        timestamps: true
+    })
 
 
-const Insight = mongoose.model("Insight",InsightSchema)
+const Insight = mongoose.model("Insight", InsightSchema)
 
 module.exports = Insight

@@ -1,15 +1,15 @@
-const jwt  = require('jsonwebtoken')
+const jwt = require('jsonwebtoken')
 const User = require('../models/User')
 
-const authMiddleware = async (req,res,next) => {
+const authMiddleware = async (req, res, next) => {
     try {
         const token = req.header('Authorization').replace('Bearer', '').trim()
 
-        const decoded  = jwt.verify(token, process.env.SECRET)
+        const decoded = jwt.verify(token, process.env.SECRET)
 
-        const user  = await User.findOne({ _id:decoded._id, 'tokens.token': token})
+        const user = await User.findOne({ _id: decoded._id, 'tokens.token': token })
 
-        if(!user){
+        if (!user) {
             throw new Error()
         }
         req.token = token
@@ -17,9 +17,9 @@ const authMiddleware = async (req,res,next) => {
         next()
     } catch (error) {
         console.log(error)
-        res.status(401).send({error:'Please authenticate!'})
+        res.status(401).send({ error: 'Please authenticate!' })
     }
 }
 
 
-module.exports = {authMiddleware}
+module.exports = { authMiddleware }
