@@ -8,9 +8,13 @@
 
 ## Instructions to run the application 
 
-* I have deployed the backend in AWS and used Nginx as web server & reverse proxy
+* I have deployed the backend in AWS and used Nginx as web server & reverse proxy for testing
 
 * Live link : http://34.239.102.32/
+
+* I have also hosted the full stack application 
+
+* Live link : 
 
 ## Api requests for each requirements
 
@@ -58,6 +62,7 @@
 
 ## Services used:
 * Node.js
+* React.js
 * Express.js
 * MongoDB
 * JWT
@@ -65,3 +70,4 @@
 * bcryptjs
 * AWS
 * Nginx
+
